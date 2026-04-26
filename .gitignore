@@ -217,5 +217,10 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# IDE
-.idea/
+# IDE - 用户个人配置不跟踪
+.idea/workspace.xml
+.idea/tasks/
+.idea/shelf/
+.idea/dataSources/
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
