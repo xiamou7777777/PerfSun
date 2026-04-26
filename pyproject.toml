@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perfsun"
+version = "1.0.0"
+description = "跨平台性能采集工具(类似PerfDog)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "PerfSun Development Team"}
+]
+keywords = ["performance", "monitoring", "android", "ios", "windows", "profiling", "fps", "jank"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing :: Performance",
+]
+
+dependencies = [
+    "click>=8.1.0",
+    "rich>=13.0.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "adbutils>=0.15.0",
+    "psutil>=5.9.0",
+    "pywin32>=300",
+    "pygments>=2.15.0",
+    "xlsxwriter>=3.1.0",
+    "openpyxl>=3.1.0",
+    "jinja2>=3.1.0",
+    "schedule>=1.2.0",
+    "PyQt6>=6.7.0",
+    "pyqtgraph>=0.13.3",
+]
+
+[project.optional-dependencies]
+ios = ["pymobiledevice3>=3.0.0"]
+nvidia = ["py3nvml>=0.2.0"]
+web = ["websockets>=11.0.0", "fastapi>=0.100.0"]
+dev = ["pytest>=7.0.0", "pytest-cov>=4.0.0"]
+
+[project.scripts]
+perfsun = "perfsun.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/perfsun/perfsun"
+Documentation = "https://perfsun.github.io"
+Repository = "https://github.com/perfsun/perfsun"
+
+[tool.setuptools]
+packages = ["perfsun", "perfsun.core", "perfsun.collectors", "perfsun.utils"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["perfsun"]
+omit = ["tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]

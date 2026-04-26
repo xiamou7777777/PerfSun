@@ -1,0 +1,40 @@
+# PerfSun 性能采集工具依赖
+# 核心依赖
+click>=8.1.0
+rich>=13.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Android采集
+adbutils>=0.15.0
+
+# iOS采集
+# pymobiledevice3>=3.0.0  # 需要Mac和Xcode
+
+# Windows采集
+psutil>=5.9.0
+pywin32>=300
+pygments>=2.15.0
+
+# 数据导出
+xlsxwriter>=3.1.0
+openpyxl>=3.1.0
+jinja2>=3.1.0
+
+# 工具库
+schedule>=1.2.0
+
+# GUI支持
+PyQt6>=6.7.0
+pyqtgraph>=0.13.3
+
+# 可选依赖 - NVIDIA GPU监控
+# py3nvml>=0.2.0
+
+# 可选依赖 - Web服务
+# websockets>=11.0.0
+# fastapi>=0.100.0
+
+# 开发依赖
+pytest>=7.0.0
+pytest-cov>=4.0.0
